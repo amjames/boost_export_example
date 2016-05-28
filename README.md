@@ -24,30 +24,29 @@ Example of python module written in c++ using boost-python
     - runs the memory profiling test 
     - qsub this script to request a compute node for testing (to memory intensive for the head node) 
   
-## build instructions 
-  - Requirements:
+## Build Requirements:
     - Open MP
     - Boost library (tested with v. 1.58.0)
     - boost python (tested with v. 1.58.0)
     - gnu make
     - python interpeter and headers 
-  - Suggested modules (blueridge/newriver @ VT): `module purge` then `module load` the folowing
+##Suggested modules (blueridge/newriver @ VT): 
+  - `module purge` then `module load` the following
     - `gcc/4.7.2` (required for anaconda)
     - `Anaconda`
     - `Anaconda-boost/1.58.0`
+## Build Instructions 
   - To build and run main.py run:
     - `make` in the top source directory 
+    - test module compilation by running `python test.py`
     - `python main.py (optional arguments)`
-    - Note: an error will occur unless you have logged with X11 forwarding 
-  - To run memory tests
-    - create a local anaconda environment 
-      - `conda create -n myenv --clone/opt/apps/Anaconda/2.3.0`
-      - `source activate myenv` 
-    - Install the python memory profiler
-      - `conda install mprof`
-    - if you have not named the environement myenv then edit the runtes.sh script accordingly 
-    - `qsub runtest.sh`
-    - you can see the mprof documentation for viewing the profile results 
-
-      - 
-  
+    - Note: an error will occur unless you have logged with X11 forwarding
+## To run memory profiling tests
+  - create a local anaconda environment
+    - `conda create -n myenv --clone/opt/apps/Anaconda/2.3.0`
+    - `source activate myenv`
+  - Install the python memory profiler
+    - `conda install mprof`
+  - if you have not named the environement myenv then edit the runtes.sh script accordingly 
+  - `qsub runtest.sh`
+  - you can see the mprof documentation for viewing the profile results 
