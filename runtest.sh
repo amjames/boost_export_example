@@ -10,11 +10,13 @@
 ##PBS -M amjames2@vt.edu
 #PBS -m bea
 
+cd $PBS_O_WORKDIR
+module load gcc/4.7.2 Anaconda Anaconda-boost/1.58.0
+source activate myenv
 
 for i in {1..12};do
-  source activate default
   export OMP_NUM_THREADS=${i}
-  echo "running test 1 thread"
+  echo "running test ${i} thread(s)"
   mprof run runtest.py
 done;
 echo "done!"
